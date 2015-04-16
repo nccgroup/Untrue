@@ -39,7 +39,7 @@ However, you can also provide the volume header as a hex string (512 bytes long)
 You need to provide the volume encryption key, either as a hex string (with the `-k` option) or by pointing to a file containing it (with the `--key`_file option).
 You also need to specify an input file (i.e. the encrypted volume or drive) and an output file. Untrue will refuse to write to an existing output file (to avoid accidental overwrites).
 
-### Check a password against a TrueCrypt volume or drive, and then use the resultant key to decrypt it the volume or drive contents
+### Check a password against a TrueCrypt volume or drive, and then use the resultant key to decrypt the volume or drive contents
 
     Untrue.exe [general_options] -p passphrase -i input_file (--volume_header_file=input_file | --volume_header_hex=hex_string) -o output_file [password_checking_options] [algorithm_options] [decryption options]
 
@@ -57,7 +57,8 @@ If the passphrase is wrong, decryption won't proceed.
 
 ### Password Checking Options
 
-`--volume_header_location=VALUE`	Location of the volume header in the volume header file. Note that this is specified as the sector number, assuming a sector size of 0x200 bytes. 
+`--volume_header_location=VALUE`	
+Location of the volume header in the volume header file. Note that this is specified as the sector number, assuming a sector size of 0x200 bytes. 
 
 In most cases you should be safe to omit this option - Untrue will try to intelligently guess it if not specified. If no volume header file is specified (i.e. the volume header is in the input file) then Untrue will try to determine if the input file is an encrypted volume or encrypted drive image, and will set the volume header location accordingly. If a volume header file is specified, and appears to be a Rescue CD image, then the volume header location will again be set accordingly. Otherwise, the volume header location will default to 0. 
 
