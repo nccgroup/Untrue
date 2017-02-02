@@ -170,5 +170,14 @@ namespace Untrue
 
             return output;
         }
+
+        public static bool? IsDirFile(string path)
+        {
+            if (!Directory.Exists(path) && !File.Exists(path))
+                return null;
+            var fileAttr = File.GetAttributes(path);
+            return !fileAttr.HasFlag(FileAttributes.Directory);
+        }
+
     }
 }
